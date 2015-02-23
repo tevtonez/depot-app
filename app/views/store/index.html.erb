@@ -4,6 +4,12 @@
 
 <h1>Your Pragmatic Catalog</h1>
 
+  <div class="hitcounter">
+
+    <%= @count > 5 ? "you have been here #{ pluralize @count, 'time' }" : ""  %>
+
+  </div>
+
 <% cache ['store', Product.latest] do %>
 
   <% @products.each do |product| %>
