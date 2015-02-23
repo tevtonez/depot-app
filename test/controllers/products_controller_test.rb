@@ -52,4 +52,20 @@ class ProductsControllerTest < ActionController::TestCase
 
     assert_redirected_to products_path
   end
+  
+  # my test PRODUCTS MAINTENANCE FUNCTIONAL TESTING
+  test "should show the maintenance links on products page" do
+    get :index
+    assert_response :success
+    assert_select '.list_actions a', minimum: 3
+    assert_select '.list_actions a', 'Show'
+    assert_select '.list_actions a', 'Edit'
+    assert_select '.list_actions a', 'Destroy'
+    
+    assert_select '.list_description', minimum: 3
+
+    assert_select 'table img', minimum: 3
+
+  end
+  
 end
